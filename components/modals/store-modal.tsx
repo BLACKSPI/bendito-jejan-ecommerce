@@ -47,11 +47,12 @@ export const StoreModal = () => {
         }
     }
 
-    return(
-        <Modal title="create store"
-    description="Add new store to manage products and categories"
-    isOpen={storeModal.isOpen}
-    onClose={storeModal.onClose}
+    return (
+        <Modal 
+        title="create store"
+        description="Add new store to manage products and categories"
+        isOpen={storeModal.isOpen}
+        onClose={storeModal.onClose}
     >
         <div>
             <div className="space-y-4 py-2 pb-4">
@@ -71,7 +72,8 @@ export const StoreModal = () => {
                             )}
                             />
                             <div className="pt-6 space-x-2 flex items-center justify-end w-full">
-                                <Button variant="outline" onClick={storeModal.onClose}>Cancel</Button>
+                                 {/* <Button disabled={loading} variant="outline" onClick= {storeModal.onClose} >Cancel</Button> */}
+                                  {/* remove or comment the cancel btn if it doesnt work*/}
                                 <Button disabled={loading} type="submit">Continue</Button>
 
                             </div>
