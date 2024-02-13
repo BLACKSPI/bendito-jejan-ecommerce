@@ -6,13 +6,13 @@ import { useState } from "react";
 import axios from "axios";
 
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { SizeColumn } from "./columns";
+import { ProductColumn } from "./columns";
 import { Button } from "@/components/ui/button";
 import { AlertModal } from "@/components/modals/alert-modal";
 
 
 interface CellActionProps {
-    data: SizeColumn;
+    data: ProductColumn;
 };
 
 export const CellAction: React.FC<CellActionProps> = ({
@@ -29,18 +29,18 @@ export const CellAction: React.FC<CellActionProps> = ({
 
     const onCopy = (id: string) => {
         navigator.clipboard.writeText(id);
-        toast.success("Size Id copied to clipboard.");
+        toast.success("Product Id copied to clipboard.");
     };
 
     const onDelete = async () =>
     {
         try {
             setLoading(true)
-            await axios.delete(`/api/${params.storeId}/sizes/${data.id}`);
+            await axios.delete(`/api/${params.storeId}/products/${data.id}`);
             router.refresh();
-            toast.success("Sizes Deleted");
+            toast.success("Product Deleted");
         } catch (error) {
-            toast.error("Make sure you remove all products using this size first.");
+            toast.error("Something went wrong");
         } finally {
             setLoading(false)
             setOpen(false)
@@ -70,7 +70,7 @@ export const CellAction: React.FC<CellActionProps> = ({
                         <Copy className="mr-2 h-4 w-4"/>
                         Copy Id
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => router.push(`/${params.storeId}/sizes/${data.id}`)}>
+                    <DropdownMenuItem onClick={() => router.push(`/${params.storeId}/products/${data.id}`)}>
                         <Edit className="mr-2 h-4 w-4"/>
                         Update
                     </DropdownMenuItem>
