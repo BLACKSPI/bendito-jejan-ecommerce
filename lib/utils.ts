@@ -1,5 +1,4 @@
 import { type ClassValue, clsx } from "clsx"
-import { Currency } from "lucide-react"
 import { twMerge } from "tailwind-merge"
  
 export function cn(...inputs: ClassValue[]) {
@@ -8,5 +7,5 @@ export function cn(...inputs: ClassValue[]) {
 
 export const formatter = new Intl.NumberFormat("en-US", {
   style: 'currency',
-  currency: 'USD'
+  currency: 'KES'
 });
